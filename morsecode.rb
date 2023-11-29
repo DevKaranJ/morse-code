@@ -8,7 +8,7 @@ MORSE_CODE = {
   '1' => '.----', '2' => '..---', '3' => '...--', '4' => '....-', '5' => '.....',
   '6' => '-....', '7' => '--...', '8' => '---..', '9' => '----.', '0' => '-----',
   '.' => '.-.-.-', ',' => '--..--', '?' => '..--..'
-}
+}.freeze
 
 def decode_char(parameter)
   MORSE_CODE.each do |key, value|
@@ -18,7 +18,7 @@ end
 
 def morse_word_to_eng(word)
   chars = word.split
-  newWord = ''
+  new_Word = ''
   chars.each do |char|
     new_word += decode_char(char)
   end
