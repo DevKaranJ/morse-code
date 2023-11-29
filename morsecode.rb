@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 MORSE_CODE = {
   'A' => '.-', 'B' => '-...', 'C' => '-.-.', 'D' => '-..', 'E' => '.',
   'F' => '..-.', 'G' => '--.', 'H' => '....', 'I' => '..', 'J' => '.---',
@@ -19,7 +17,7 @@ def decode_char(parameter)
 end
 
 def morse_word_to_eng(word)
-  chars = word.split(' ')
+  chars = word.split
   new_word = ''
   chars.each do |char|
     new_word += decode_char(char)
