@@ -1,44 +1,40 @@
+# frozen_string_literal: true
 
-$morse_code = {
-    'A' => '.-', 'B' => '-...', 'C' => '-.-.', 'D' => '-..', 'E' => '.',
-    'F' => '..-.', 'G' => '--.', 'H' => '....', 'I' => '..', 'J' => '.---',
-    'K' => '-.-', 'L' => '.-..', 'M' => '--', 'N' => '-.', 'O' => '---',
-    'P' => '.--.', 'Q' => '--.-', 'R' => '.-.', 'S' => '...', 'T' => '-',
-    'U' => '..-', 'V' => '...-', 'W' => '.--', 'X' => '-..-', 'Y' => '-.--',
-    'Z' => '--..',
-    '1' => '.----', '2' => '..---', '3' => '...--', '4' => '....-', '5' => '.....',
-    '6' => '-....', '7' => '--...', '8' => '---..', '9' => '----.', '0' => '-----',
-    '.' => '.-.-.-', ',' => '--..--', '?' => '..--..'
-  }
+MORSE_CODE = {
+  'A' => '.-', 'B' => '-...', 'C' => '-.-.', 'D' => '-..', 'E' => '.',
+  'F' => '..-.', 'G' => '--.', 'H' => '....', 'I' => '..', 'J' => '.---',
+  'K' => '-.-', 'L' => '.-..', 'M' => '--', 'N' => '-.', 'O' => '---',
+  'P' => '.--.', 'Q' => '--.-', 'R' => '.-.', 'S' => '...', 'T' => '-',
+  'U' => '..-', 'V' => '...-', 'W' => '.--', 'X' => '-..-', 'Y' => '-.--',
+  'Z' => '--..',
+  '1' => '.----', '2' => '..---', '3' => '...--', '4' => '....-', '5' => '.....',
+  '6' => '-....', '7' => '--...', '8' => '---..', '9' => '----.', '0' => '-----',
+  '.' => '.-.-.-', ',' => '--..--', '?' => '..--..'
+}.freeze
 
-def decode_char (parameter)
-  $morse_code.each do |key, value|
-    if value == parameter
-        puts(key)
-    end
-    
+def decode_char(parameter)
+  MORSE_CODE.each do |key, value|
+    puts(key) if value == parameter
   end
 end
 
 def morse_word_to_eng(word)
   chars = word.split(' ')
-  newWord = ''
+  new_word = ''
   chars.each do |char|
-    newWord += decode_char(char)
+    new_word += decode_char(char)
   end
-  return newWord
+  new_word
 end
 
 def morse_sentence_to_eng(sentence)
   words_arr = sentence.split('   ')
-  newSentence = ''
+  new_sentence = ''
   words_arr.each do |word|
-    newSentence += morse_word_to_eng(word)
-    newSentence += ' '
+    new_sentence += morse_word_to_eng(word)
+    new_sentence += ' '
   end
-  return newSentence
+  new_sentence
 end
-puts morse_sentence_to_eng(".-   -... --- -..-   ..-. ..- .-.. .-..   --- ..-.   .-. ..- -... .. . ...")
 
-
-
+puts morse_sentence_to_eng('.-   -... --- -..-   ..-. ..- .-.. .-..   --- ..-.   .-. ..- -... .. . ...')
