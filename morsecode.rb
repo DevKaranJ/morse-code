@@ -21,7 +21,7 @@ def decode_char (parameter)
 end
 
 def morse_word_to_eng(word)
-  chars = word.split(' ')
+  chars = word.split
   newWord = ''
   chars.each do |char|
     newWord += decode_char(char)
