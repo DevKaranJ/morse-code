@@ -19,3 +19,26 @@ def decode_char (parameter)
     
   end
 end
+
+def morse_word_to_eng(word)
+  chars = word.split(' ')
+  newWord = ''
+  chars.each do |char|
+    newWord += decode_char(char)
+  end
+  return newWord
+end
+
+def morse_sentence_to_eng(sentence)
+  words_arr = sentence.split('   ')
+  newSentence = ''
+  words_arr.each do |word|
+    newSentence += morse_word_to_eng(word)
+    newSentence += ' '
+  end
+  return newSentence
+end
+puts morse_sentence_to_eng(".-   -... --- -..-   ..-. ..- .-.. .-..   --- ..-.   .-. ..- -... .. . ...")
+
+
+
